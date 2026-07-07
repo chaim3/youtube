@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/react-start";
 import { readFile } from "node:fs/promises";
+import { Navbar } from "~/components/Navbar";
 
 // Read the business name at request time from site.json
 const getBusinessName = createServerFn({ method: "GET" }).handler(async () => {
@@ -33,36 +34,7 @@ function Home() {
       {/* Background grid overlay */}
       <div className="pointer-events-none fixed inset-0 bg-grid" />
 
-      {/* Navbar */}
-      <nav className="fixed top-0 left-0 right-0 z-50 border-b border-white/5 bg-dark-900/80 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-          <div className="flex items-center gap-3">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-neon-cyan to-neon-purple text-xs font-bold text-white shadow-lg">
-              T
-            </div>
-            <span className="text-lg font-bold tracking-tight text-white">
-              {name}
-            </span>
-          </div>
-          <div className="hidden items-center gap-8 text-sm font-medium text-gray-400 md:flex">
-            <button onClick={() => scrollTo("features")} className="transition-colors hover:text-white">
-              Features
-            </button>
-            <button onClick={() => scrollTo("how-it-works")} className="transition-colors hover:text-white">
-              How It Works
-            </button>
-            <button onClick={() => scrollTo("cta")} className="transition-colors hover:text-white">
-              Get Started
-            </button>
-          </div>
-          <a
-            href="#cta"
-            className="rounded-full bg-gradient-to-r from-neon-cyan to-neon-purple px-5 py-2 text-sm font-semibold text-white shadow-lg transition-all hover:scale-105 hover:shadow-neon-cyan/25"
-          >
-            Join Waitlist
-          </a>
-        </div>
-      </nav>
+      <Navbar name={name} />
 
       {/* Hero Section */}
       <section className="relative flex min-h-dvh flex-col items-center justify-center overflow-hidden px-6 pt-20">
