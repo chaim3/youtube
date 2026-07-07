@@ -13,9 +13,36 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "My site" },
+      { title: "TrendAI Media — AI-Powered YouTube Channel Network" },
+      {
+        name: "description",
+        content:
+          "TrendAI Media is a faceless AI-powered YouTube channel network that identifies trending niches, generates optimized scripts, and produces high-volume viral videos — all fronted by a recognizable AI mascot host.",
+      },
+      { name: "og:title", content: "TrendAI Media" },
+      {
+        name: "og:description",
+        content:
+          "AI-powered YouTube content creation — from trend detection to viral videos.",
+      },
+      { name: "og:type", content: "website" },
     ],
-    links: [{ rel: "stylesheet", href: appCss }],
+    links: [
+      { rel: "stylesheet", href: appCss },
+      {
+        rel: "preconnect",
+        href: "https://fonts.googleapis.com",
+      },
+      {
+        rel: "preconnect",
+        href: "https://fonts.gstatic.com",
+        crossOrigin: "anonymous",
+      },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap",
+      },
+    ],
   }),
   notFoundComponent: () => <div>Page not found</div>,
   component: RootComponent,
@@ -31,7 +58,7 @@ function RootComponent() {
 
 function RootDocument({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <head>
         <HeadContent />
       </head>
