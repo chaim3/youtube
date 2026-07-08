@@ -4,6 +4,7 @@ const navLinks = [
   { href: "/", label: "Dashboard" },
   { href: "/trends", label: "Trends" },
   { href: "/publishing", label: "Publishing" },
+  { href: "/settings", label: "Settings" },
 ];
 
 export function Navbar({ name }: { name?: string }) {
